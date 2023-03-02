@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bcrypt usage"""
+"""Bcrypt utility functions"""
 import bcrypt
 
 
@@ -16,7 +16,7 @@ def hash_password(password: str) -> bytes:
     return bcrypt.hashpw(password.encode(), salt)
 
 
-def is_valid(hashed_password: str, password: str) -> bool:
+def is_valid(hashed_password: bytes, password: str) -> bool:
     """Checks if a password is valid
 
     Args:
