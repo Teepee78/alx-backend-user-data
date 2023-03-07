@@ -28,6 +28,8 @@ class Auth:
                 return False
         else:
             for i in excluded_paths:
+                if i.startswith(path):
+                    return False
                 if i.endswith("*"):
                     if path.startswith(i[:-1]):
                         return False
