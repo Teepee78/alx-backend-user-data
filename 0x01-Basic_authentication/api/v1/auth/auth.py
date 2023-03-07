@@ -31,7 +31,7 @@ class Auth:
                 if i.endswith("*"):
                     if path.startswith(i[:-1]):
                         return False
-            if f"{path}/" in excluded_paths:
+            if "{}/".format(path) in excluded_paths:
                 return False
         return True
 
