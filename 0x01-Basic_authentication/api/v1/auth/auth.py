@@ -56,4 +56,5 @@ class Auth:
         return headers['Authorization']
 
     def current_user(self, request=None) -> TypeVar('User'):
+        """Returns the current user"""
         return None
