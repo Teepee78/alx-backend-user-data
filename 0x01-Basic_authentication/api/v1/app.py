@@ -41,6 +41,8 @@ def forbidden(error) -> str:
 
 @app.before_request
 def before_request() -> None:
+    """Before request"""
+
     excluded = [
         '/api/v1/status/',
         '/api/v1/unauthorized/',
