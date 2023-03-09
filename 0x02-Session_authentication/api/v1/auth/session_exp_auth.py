@@ -57,9 +57,8 @@ class SessionExpAuth(SessionAuth):
         """
         cookie = self.session_cookie(request)
         if cookie is not None:
-            details = self.user_id_by_session_id.get(cookie)
-            if details is None:
+            user_id = self.user_id_for_session_id(cookie)
+            if user_id is None:
                 return None
-            user_id = details.get("user_id")
             return User.get(user_id)
         return None
