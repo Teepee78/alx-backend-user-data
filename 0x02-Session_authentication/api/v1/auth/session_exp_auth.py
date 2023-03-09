@@ -38,11 +38,11 @@ class SessionExpAuth(SessionAuth):
         user = self.user_id_by_session_id.get(session_id)
         if user is None:
             return None
+        if "created_at" not in user.keys():
+            return None
         created_at = user.get("created_at")
         if created_at == 0:
             return user.get("user_id")
-        if created_at is None:
-            return None
         window = created_at + timedelta(seconds=self.session_duration)
         if window < datetime.now():
             return None
