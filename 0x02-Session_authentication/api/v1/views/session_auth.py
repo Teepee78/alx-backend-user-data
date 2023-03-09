@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Session authentication"""
 from os import getenv
 
 from flask import abort, jsonify, make_response, request
