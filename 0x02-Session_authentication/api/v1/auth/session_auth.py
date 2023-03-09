@@ -52,7 +52,7 @@ class SessionAuth(Auth):
         """
         cookie = self.session_cookie(request)
         if cookie is not None:
-            user_id = self.user_id_by_session_id.get(cookie)
+            user_id = self.user_id_for_session_id(cookie)
             return User.get(user_id)
         return None
 
