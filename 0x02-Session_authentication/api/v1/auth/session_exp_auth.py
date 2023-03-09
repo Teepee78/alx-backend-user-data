@@ -42,7 +42,7 @@ class SessionExpAuth(SessionAuth):
         if "created_at" not in user.keys():
             return None
         created_at = user.get("created_at")
-        if created_at == 0:
+        if created_at <= 0:
             return user.get("user_id")
         window = created_at + timedelta(seconds=self.session_duration)
         if window < datetime.now():
