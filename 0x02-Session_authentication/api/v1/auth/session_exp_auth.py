@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from os import getenv
 
 from api.v1.auth.session_auth import SessionAuth
+from models.user import User
 
 
 class SessionExpAuth(SessionAuth):
@@ -47,3 +48,18 @@ class SessionExpAuth(SessionAuth):
         if window < datetime.now():
             return None
         return user.get("user_id")
+
+    def current_user(self, request=None):
+        """Returns the current user
+
+        Args:
+            request (request, optional): request. Defaults to None.
+        """
+        cookie = self.session_cookie(request)
+        if cookie is not None:
+            details = self.user_id_by_session_id.get(cookie)
+            if details is None:
+                return None
+            user_id = details.get("user_id")
+            return User.get(user_id)
+        return None
