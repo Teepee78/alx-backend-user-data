@@ -48,11 +48,8 @@ class DB:
         self._session.commit()
         return user
 
-    def find_user_by(self, **kwargs: Dict) -> User:
+    def find_user_by(self, **kwargs) -> User:
         """Finds user by keyword
-
-        Args:
-            keyword (str): keyword
 
         Raises:
             InvalidRequestError: invalid request
