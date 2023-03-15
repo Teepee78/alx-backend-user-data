@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """Defines the database connection"""
-from typing import Dict
-
 from sqlalchemy import create_engine
 from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.ext.declarative import declarative_base
