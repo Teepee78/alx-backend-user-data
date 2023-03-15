@@ -10,7 +10,7 @@ from db import DB
 from user import User
 
 
-def _hash_password(password: str) -> str:
+def _hash_password(password: str) -> bytes:
     """Hashes a password
 
     Args:
@@ -32,6 +32,7 @@ class Auth:
     """
 
     def __init__(self):
+        """Init method"""
         self._db = DB()
 
     def register_user(self, email: str, password: str) -> User:
