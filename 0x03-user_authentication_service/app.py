@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """API endpoints"""
-from typing import Dict
-
 from flask import Flask, abort, jsonify, make_response, redirect, request
 
 from auth import Auth
