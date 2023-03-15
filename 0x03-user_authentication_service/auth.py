@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Authentication methods"""
+"""Authentication methods module"""
 from typing import Union
 from uuid import uuid4
 
